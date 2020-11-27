@@ -15,10 +15,16 @@
 
 let userNumber;
 let rendomNumber;
+const numbeAtClosure = () => { 
+    const result = Math.ceil( Math.random() * 100 );
+    return () => result;
+}
+
+const newNumber = numbeAtClosure();
 
 alert("Загадывание случайного числа от 1 до 100");
 
-rendomNumber = Math.ceil( Math.random() * 100 );
+rendomNumber = newNumber();
 
 let enterNumber = (text) => {
     let result = prompt(text);
@@ -48,5 +54,6 @@ let start = (arg) => {
         return;
     }
 };
-
+console.log(newNumber());
+console.log(newNumber());
 start(rendomNumber);
